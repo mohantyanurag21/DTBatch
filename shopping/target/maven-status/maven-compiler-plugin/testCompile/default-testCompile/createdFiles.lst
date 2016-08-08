@@ -1,2 +1,5 @@
-com\niit\shoppingkart\test\CategoryTest.class
+com\niit\shoppingkart\test\UserTest$Test.class
+com\niit\shoppingkart\test\UserTest.class
 com\niit\shoppingkart\test\ProductTest.class
+com\niit\shoppingkart\test\SupplierTest.class
+com\niit\shoppingkart\test\CategoryTest.class

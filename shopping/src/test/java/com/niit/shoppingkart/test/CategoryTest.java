@@ -20,12 +20,13 @@ public static void main(String[] args) {
 		CategoryDAO categoryDAO = (CategoryDAO)  context.getBean("categoryDAO");
 		
 		
-		c.setId("TAB_079");
+		/*c.setId("TAB_079");
 		c.setName("Tablet");
-		c.setDescription("Tablet product");
+		c.setDescription("Tablet product");*/
 		
 		
-		categoryDAO.saveOrUpdate(c);
+		//categoryDAO.saveOrUpdate(c);
+		categoryDAO.delete("");
 		System.out.println("Table Created");
 	}
 

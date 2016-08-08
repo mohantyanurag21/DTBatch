@@ -19,7 +19,10 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 import com.niit.shoppingkart.dao.CategoryDAO;
 import com.niit.shoppingkart.dao.CategoryDAOImpl;
 import com.niit.shoppingkart.model.Category;
+import com.niit.shoppingkart.model.Product;
 import com.niit.shoppingkart.model.Supplier;
+import com.niit.shoppingkart.model.User;
+import com.niit.shoppingkart.model.UserDetails;
 
 @Configuration
 @ComponentScan("com.niit.shopingkart")
@@ -40,7 +43,8 @@ public class ApplicationContextConfig {
     private Properties getHibernateProperties() {
     	Properties properties = new Properties();
     	properties.put("hibernate.show_sql", "true");
-    	properties.put("hibernate.dialect", "org.hibernate.dialect.MySQLDialect");
+    	properties.put("update", "hibernate.hbm2ddl.auto");
+    	properties.put("hibernate.dialect", "org.hibernate.dialect.H2Dialect");
     	return properties;
     }
     
@@ -51,8 +55,9 @@ public class ApplicationContextConfig {
     	sessionBuilder.addProperties(getHibernateProperties());
     	sessionBuilder.addAnnotatedClasses(Category.class);
     	sessionBuilder.addAnnotatedClasses(Supplier.class);
-    	//sessionBuilder.addAnnotatedClasses(User.class);
-    	//sessionBuilder.addAnnotatedClasses(Product.class);
+    	sessionBuilder.addAnnotatedClasses(User.class);
+    	sessionBuilder.addAnnotatedClasses(Product.class);
+    	sessionBuilder.addAnnotatedClasses(UserDetails.class);
     	return sessionBuilder.buildSessionFactory();
     }
     

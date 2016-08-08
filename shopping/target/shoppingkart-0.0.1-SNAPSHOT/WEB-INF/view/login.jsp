@@ -1,5 +1,6 @@
-
 <!DOCTYPE html>
+<%@taglib uri="http://www.springframework.org/tags/form" prefix="f"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <html lang="en">
 <head>
 <title>Login</title>
@@ -7,10 +8,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet"
 	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+	
 <link rel="stylesheet"
-	href="src/main/webapp/WEB-INF/resources/css/bootstrap.css">
+	href="/WEB-INF/resources/css/bootstrap.css">
 <link rel="stylesheet"
-	href="src/main/webapp/WEB-INF/resources/css/font-awesome.min.css"
+	href="/WEB-INF/resources/css/font-awesome.min.css"
 	type="text/css">
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
@@ -167,20 +169,15 @@ body, html {
 			<img id="profile-img" class="profile-img-card"
 				src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" />
 			<p id="profile-name" class="profile-name-card"></p>
-			<form class="form-signin">
+			<c:url var="action" value="/isValidUser"></c:url>		
+			<form:f class="form-signin" action="${action}" method="post">
 				<span id="reauth-email" class="reauth-email"></span> <input
 					type="email" id="inputEmail" class="form-control"
-					placeholder="Email address" required autofocus> <input
+					placeholder="Email address" name = "name" required autofocus> <input
 					type="password" id="inputPassword" class="form-control"
-					placeholder="Password" required>
-				<div id="remember" class="checkbox">
-					<label> <input type="checkbox" value="remember-me">
-						Remember me
-					</label>
-				</div>
-				<button class="btn btn-lg btn-primary btn-block btn-signin"
-					type="submit">Sign in</button>
-			</form>
+					placeholder="Password" name = "password" required>
+				<input type="submit" value="Login">
+			</form:f>
 			<!-- /form -->
 			<a href="#" class="forgot-password"> Forgot the password? </a> <br>
 			<a href="#" class="forgot-password"> New User? Sign Up Here </a>

@@ -28,14 +28,14 @@ public class UserTest
 			
 		}
 		
-		public static void createUser(UserDetails userDetails)
+		/*public static void createUser(UserDetails userDetails)
 		{
 			
 			UserDAO  userDAO =  (UserDAO) context.getBean("userDAO");
 			userDAO.saveOrUpdate(userDetails);
 			
 			
-		}
+		}*/
 		
 		
 
@@ -46,16 +46,16 @@ public class UserTest
 			Test t = new Test();
 			
 			User user =(User)  context.getBean("user");
-			UserDetails userDetails =(UserDetails)  context.getBean("userDetails");
-			user.setId("tushar");
-			user.setPassword("tushar");
-			user.setAdmin(false);
-			userDetails.setId("tushar");
+			//UserDetails userDetails =(UserDetails)  context.getBean("userDetails");
+			user.setId("NIIT");
+			user.setPassword("NIIT");
+			user.setAdmin(true);
+			/*userDetails.setId("tushar");
 			userDetails.setAddress("Kanpur");
 			userDetails.setContactNumber("9000900099");
 			userDetails.setMailID("tushar4@yahoo.com");
 			userDetails.setName("Tushar Kapoor");
-			t.createUser(userDetails);
+			t.createUser(userDetails);*/
 			t.createUser(user);
 			
 			

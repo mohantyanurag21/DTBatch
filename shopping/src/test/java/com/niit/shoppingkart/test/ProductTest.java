@@ -11,19 +11,20 @@ public static void main(String[] args) {
 		@SuppressWarnings("resource")
 		AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext();
 		
-		context.scan("com.niit.shopingcart");
+		context.scan("com.niit.shoppingkart");
 		context.refresh();
 		
 		Product p = (Product)context.getBean("product");
 		
 	  
-	    p.setId("PRD_001");
-	    p.setName("PRD001");
-	    p.setDescription("This is PRD001");
-	    p.setPrice(2000);
-	    p.setCategoryID("HK-001");
-	    p.setSupplierID("SUP-001");
-	    
+	    p.setId("HP ProBook 4530s");
+	    p.setName("HP ProBook 4530s");
+	    p.setDescription("This is ProBook 4530s");
+	    p.setPrice(45000);
+	    p.setCompany("HP");
+	    //p.setCategoryID("Laptop");
+	    //p.setSupplierID("SUP_001");
+	    p.setQuantity(100);
 	    ProductDAO productDAO = (ProductDAO)context.getBean("productDAO");
 	    productDAO.saveOrUpdate(p);
 		

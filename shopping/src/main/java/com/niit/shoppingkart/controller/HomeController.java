@@ -26,8 +26,8 @@ public class HomeController {
 	public String cloth() {
 		return "clothing";
 	}
-	@RequestMapping("/login")
+	@RequestMapping("/login1")
 	public String login() {
-		return "login";
+		return "login1";
 	}
 }

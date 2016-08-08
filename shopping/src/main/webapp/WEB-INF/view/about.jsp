@@ -8,6 +8,8 @@
 </head>
 <body>
 Welcome to About us
+<h3>${message}</h3>
+<h3>${name}</h3>
 <a href="index">Click</a>
 </body>
 </html>

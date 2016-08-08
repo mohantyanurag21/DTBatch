@@ -1,9 +1,10 @@
 package com.niit.shoppingkart.model;
 
-import javax.persistence.Column;
+//import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+
 
 import org.springframework.stereotype.Component;
 
@@ -15,13 +16,27 @@ public class Product {
 	private String  id;
 	private String name;
 	private String description;
+	private String company;
+	private int quantity;
+	public String getCompany() {
+		return company;
+	}
+	public void setCompany(String company) {
+		this.company = company;
+	}
+	public int getQuantity() {
+		return quantity;
+	}
+	public void setQuantity(int quantity) {
+		this.quantity = quantity;
+	}
 	private double price;
 	
-	@Column(name = "category_id")
+	/*@Column(name = "category_id")
 	private String categoryID;
 	
 	@Column(name = "supplier_id")
-	private String supplierID;
+	private String supplierID;*/
 	public String getId() {
 		return id;
 	}
@@ -46,7 +61,7 @@ public class Product {
 	public void setPrice(double price) {
 		this.price = price;
 	}
-	public String getCategoryID() {
+	/*public String getCategoryID() {
 		return categoryID;
 	}
 	public void setCategoryID(String categoryID) {
@@ -57,10 +72,5 @@ public class Product {
 	}
 	public void setSupplierID(String supplierID) {
 		this.supplierID = supplierID;
-	}
-	
-	
-	
-	
-
+	}*/
 }

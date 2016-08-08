@@ -17,8 +17,7 @@
 <style>
 body {
 	font-family: "Lato", sans-serif;
-	background
-	="\resources\photos\background.jpg";
+	background="\resources\photos\background.jpg";
 }
 
 .sidenav {
@@ -65,12 +64,7 @@ body {
 }
 </style>
 <body>
-	<div class="container">
-		<div class="jumbotron">
-			<h1>Welcome to EShopping Kart...</h1>
-			<p>We provide the best deals in town...</p>
-		</div>
-	</div>
+
 	<nav class="navbar navbar-inverse">
 		<div class="container-fluid">
 			<div class="navbar-header">
@@ -111,7 +105,8 @@ body {
 				<ul class="nav navbar-nav navbar-right">
 					<li><a href="#"><span class="glyphicon glyphicon-cart"></span>
 							Cart</a></li>
-					<li><a href="login"><span
+					<li><a href="#"><span class="glyphicon glyphicon-cart"></span>${message}</a></li>		
+					<li><a href="login1"><span
 							class="glyphicon glyphicon-log-in"></span> Login</a></li>
 				</ul>
 			</div>

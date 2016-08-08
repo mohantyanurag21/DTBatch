@@ -22,7 +22,7 @@ public static void main(String[] args) {
 		SupplierDAO supplierDAO = (SupplierDAO)  context.getBean("supplierDAO");
 		
 		
-		c.setId("SPD_001");
+		c.setId("SUP_001");
 		c.setName("Supplier1");
 		c.setAddress("Faridabad");
 		
