@@ -102,6 +102,13 @@ public class UserController {
 			ModelAndView mv = new ModelAndView("index");
 			userDAO.saveOrUpdate(userDetails);
 			//user = (User) userDAO.get(userDetails.getId());
+			user.setId(userDetails.getId());
+			user.setPassword(userDetails.getPassword());
+			user.setAdmin(false);
+			userDAO.saveOrUpdate(user);
+			
+			//userDAO.saveOrUpdate(user);
+			//user = (User) userDAO.get(userDetails.getId());
 			//user.setAdmin(false);
 			//userDAO.saveOrUpdate(user);
 			mv.addObject("msg", "successfully registered");

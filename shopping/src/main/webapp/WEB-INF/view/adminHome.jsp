@@ -11,6 +11,5 @@
 		<a href="manageProducts">Manage Products</a> &nbsp; &nbsp;
 	</div>
 
-
 </body>
 </html>

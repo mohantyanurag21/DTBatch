@@ -1,6 +1,6 @@
 package com.niit.shoppingkart.controller;
 
-import java.util.ArrayList;
+
 import java.util.List;
 
 
@@ -20,7 +20,7 @@ public class CategoryController
 {
 	@Autowired
 	private CategoryDAO categoryDAO;
-	//private Category category;
+	private Category category;
 	
 
 	@RequestMapping("/category/add")
@@ -52,18 +52,16 @@ public class CategoryController
 	
 	
 	@RequestMapping("category/edit/{id}")
-	public ModelAndView updateCategory(@ModelAttribute("category") ArrayList<Category> categories)
+	public ModelAndView updateCategory(@PathVariable ("id") String id)
 	{
-		Category c =categories.get(0);
-		categoryDAO.saveOrUpdate(c);
-		
-		System.out.println("updating category");
-		ModelAndView mv = new ModelAndView("/categoryList");
-		
-	    List<Category> categoryList = categoryDAO.list();
-		mv.addObject("categoryList", categoryList);
-		
+		ModelAndView mv = new ModelAndView("categoryedit");
+		category = categoryDAO.get(id);
+		mv.addObject("cid", category.getId());
+		mv.addObject("cname", category.getName());
+		mv.addObject("cdescription", category.getDescription());
+		categoryDAO.delete(id);
 		return mv;
+		
 	}
 	@RequestMapping("/category/remove/{id}")
 	public ModelAndView deleteCategory(@PathVariable ("id") String id)
@@ -77,7 +75,15 @@ public class CategoryController
 		return mv;	
 	}
 
-	
-	
+	@RequestMapping("/category/edit/category/add")
+	public ModelAndView addeditCategory(@ModelAttribute Category category) 
+	{
+		ModelAndView mv = new ModelAndView("category1");
+		System.out.println("Inside add category");
+		System.out.println(category.getId());
+		categoryDAO.saveOrUpdate(category);
+		mv.addObject("categoryList", categoryDAO.list());
+	  return mv;
+	 }
 
 }

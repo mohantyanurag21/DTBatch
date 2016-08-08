@@ -13,7 +13,6 @@ public class Category {
 	private String id;
 	private String name;
 	private String description;
-	
 	@Id
 	@Column(name = "ID")
 	public String getId() {
