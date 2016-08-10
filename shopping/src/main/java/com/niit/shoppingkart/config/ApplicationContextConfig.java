@@ -18,6 +18,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import com.niit.shoppingkart.dao.CategoryDAO;
 import com.niit.shoppingkart.dao.CategoryDAOImpl;
+import com.niit.shoppingkart.model.Cart;
 import com.niit.shoppingkart.model.Category;
 import com.niit.shoppingkart.model.Product;
 import com.niit.shoppingkart.model.Supplier;
@@ -58,6 +59,7 @@ public class ApplicationContextConfig {
     	sessionBuilder.addAnnotatedClasses(User.class);
     	sessionBuilder.addAnnotatedClasses(Product.class);
     	sessionBuilder.addAnnotatedClasses(UserDetails.class);
+    	sessionBuilder.addAnnotatedClasses(Cart.class);
     	return sessionBuilder.buildSessionFactory();
     }
     

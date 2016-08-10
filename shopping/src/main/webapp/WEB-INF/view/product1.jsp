@@ -20,8 +20,8 @@
 	<input type="number" name = "quantity"> Quantity
 	<input type="text" name = "company"> CompanyName
 	<input type="number" name = "price"> Price
-	<label for="productImage">Upload Picture</label>
-                <input  type = "file" name = "file" />
+	<form:label path="image">Upload Picture</form:label>
+                <form:input  type = "file" path = "image" />
 	
 	<input type = "submit" name = "Submit">
 	

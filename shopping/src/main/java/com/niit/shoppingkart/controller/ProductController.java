@@ -1,10 +1,11 @@
 package com.niit.shoppingkart.controller;
 
+import java.io.BufferedOutputStream;
 import java.io.File;
-import java.nio.file.Path;
-import java.nio.file.Paths;
+import java.io.FileOutputStream;
 import java.util.List;
 
+import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +14,6 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.niit.shoppingkart.dao.ProductDAO;
@@ -26,7 +26,7 @@ public class ProductController
 	private ProductDAO productDAO;
 	@Autowired
 	private Product product;
-	private Path path;
+	//private Path path;
 	
 
 	@RequestMapping("/product/add")
@@ -34,7 +34,7 @@ public class ProductController
 	{
 		ModelAndView mv = new ModelAndView("product1");
 		System.out.println("Inside add category");
-		productDAO.saveOrUpdate(product);
+		/*productDAO.saveOrUpdate(product);
 		MultipartFile productImage = product.getImage();
         String rootDirectory = request.getSession().getServletContext().getRealPath("/");
         System.out.println(rootDirectory.toString());
@@ -46,7 +46,30 @@ public class ProductController
                 ex.printStackTrace();
                 throw new RuntimeException("Product image saving failed", ex);
             }
-        }
+        }*/
+		//String filename=null; 
+		//int res = 0; 
+		ServletContext context=request.getServletContext();
+		String path=context.getRealPath("./WEB-INF/resources/photos/"+product.getId()+".jpg"); 
+		System.out.println("Path = "+path); 
+		System.out.println("File name = "+product.getImage().getOriginalFilename());
+		File f=new File(path); 
+		if(!product.getImage().isEmpty())
+		{
+			try { //filename=p.getImage().getOriginalFilename();
+				byte[] bytes=product.getImage().getBytes();
+				BufferedOutputStream bs=new BufferedOutputStream(new FileOutputStream(f));
+				bs.write(bytes);
+				bs.close();
+				System.out.println("Image uploaded");
+			}
+			catch(Exception ex)
+			{
+			System.out.println(ex.getMessage());
+			}
+			}
+		
+        productDAO.saveOrUpdate(product);
         System.out.println("Image Added");
 		mv.addObject("productList", productDAO.list());
 	  return mv;
