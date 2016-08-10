@@ -5,11 +5,15 @@ com\niit\shoppingkart\controller\HomeController.class
 com\niit\shoppingkart\model\Supplier.class
 com\niit\shoppingkart\config\ApplicationContextConfig.class
 com\niit\shoppingkart\dao\CategoryDAOImpl.class
+com\niit\shoppingkart\controller\CategoryController.class
+com\niit\shoppingkart\controller\SupplierController.class
+com\niit\shoppingkart\controller\AdminController.class
 com\niit\shoppingkart\controller\UserController.class
 com\niit\shoppingkart\model\User.class
 com\niit\shoppingkart\model\UserDetails.class
 com\niit\shoppingkart\dao\UserDAOImpl.class
 com\niit\shoppingkart\dao\ProductDAOImpl.class
+com\niit\shoppingkart\controller\ProductController.class
 com\niit\shoppingkart\dao\SupplierDAOImpl.class
 com\niit\shoppingkart\model\Category.class
 com\niit\shoppingkart\dao\SupplierDAO.class

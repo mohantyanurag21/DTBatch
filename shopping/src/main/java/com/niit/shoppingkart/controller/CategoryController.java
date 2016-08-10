@@ -20,6 +20,7 @@ public class CategoryController
 {
 	@Autowired
 	private CategoryDAO categoryDAO;
+	@Autowired
 	private Category category;
 	
 
@@ -60,6 +61,7 @@ public class CategoryController
 		mv.addObject("cname", category.getName());
 		mv.addObject("cdescription", category.getDescription());
 		categoryDAO.delete(id);
+		mv.addObject("categoryList", categoryDAO.list());
 		return mv;
 		
 	}

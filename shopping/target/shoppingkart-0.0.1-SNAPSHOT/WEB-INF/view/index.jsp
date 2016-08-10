@@ -129,7 +129,7 @@ body {
 			document.getElementById("mySidenav").style.width = "0";
 		}
 	</script>
-
+	<h3>${msg}</h3>
 	<div class="container">
 		<br>
 		<div id="myCarousel" class="carousel slide" data-ride="carousel">

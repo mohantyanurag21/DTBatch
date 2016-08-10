@@ -9,11 +9,11 @@
 </head>
 <body>
 	<h1>Add a Category</h1>
-
+	
 	<c:url var="addAction" value="category/add"></c:url>
 
 	<form:form action="${addAction}" commandName="category">
-	<input type="text" name = "id" readonly ="true" value = ${cid} > ID
+	<input type="text" name = "id" disabled = "true" readonly ="true" value = ${cid} > ID
 	<input type="text" name = "name" value = ${cname} > Name
 	<input type="text" name = "description" value = ${cdescription} > Description
 	<input type = "submit" name = "Submit">
