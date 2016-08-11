@@ -1,3 +1,4 @@
+com\niit\shoppingkart\dao\CartDAO.class
 com\niit\shoppingkart\dao\CategoryDAO.class
 com\niit\shoppingkart\dao\ProductDAO.class
 com\niit\shoppingkart\model\Product.class
@@ -11,7 +12,9 @@ com\niit\shoppingkart\controller\AdminController.class
 com\niit\shoppingkart\controller\UserController.class
 com\niit\shoppingkart\model\User.class
 com\niit\shoppingkart\model\UserDetails.class
+com\niit\shoppingkart\dao\CartDAOImpl.class
 com\niit\shoppingkart\dao\UserDAOImpl.class
+com\niit\shoppingkart\model\Cart.class
 com\niit\shoppingkart\dao\ProductDAOImpl.class
 com\niit\shoppingkart\controller\ProductController.class
 com\niit\shoppingkart\dao\SupplierDAOImpl.class

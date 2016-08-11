@@ -48,7 +48,7 @@
 					<td>${product.price}</td>
 					<td>${product.company}</td>
 					<td>${product.quantity}</td>
-					<td><img src="<c:url value="/resources/photos/${product.id}.png" />" alt="image" style="width:30%" /></td>
+					<td><img src="<c:url value="/resources/photos/${product.id}.jpg" />" alt="image" style="width:30%" /></td>
 					
 					<td><a href="<c:url value='product/edit/${product.id}' />">Edit</a></td>
 					<td><a href="<c:url value='product/remove/${product.id}' />">Delete</a></td>

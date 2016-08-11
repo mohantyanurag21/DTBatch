@@ -1,5 +1,7 @@
 package com.niit.shoppingkart.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 //import javax.servlet.http.HttpSession;
@@ -11,9 +13,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-
+import com.niit.shoppingkart.dao.CartDAO;
 import com.niit.shoppingkart.dao.UserDAO;
-
+import com.niit.shoppingkart.model.Cart;
 import com.niit.shoppingkart.model.User;
 import com.niit.shoppingkart.model.UserDetails;
 @Controller
@@ -37,6 +39,12 @@ public class UserController {
 	
 	//@Autowired
 	//private Category category;
+	
+	//@Autowired
+	//private Cart cart;
+	
+	@Autowired
+	private CartDAO cartDAO;
 	
 	
 	/**
@@ -74,6 +82,9 @@ public class UserController {
 					message = "Hello ";
 					mv = new ModelAndView("index");
 					mv.addObject("message", message + name);
+					session.setAttribute("isLoggedInUser", name);
+					List<Cart> cartList = cartDAO.get(name);
+					mv.addObject("value", cartList.size());
 					return mv;
 				}
 			}
