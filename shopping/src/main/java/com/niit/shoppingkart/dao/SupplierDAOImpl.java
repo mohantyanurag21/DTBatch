@@ -47,7 +47,7 @@ public class SupplierDAOImpl implements SupplierDAO {
 
 	@Transactional
 	public Supplier get(String id) {
-		String hql = "from Supplier where id=" + id;
+		String hql = "from Supplier where id='" + id +"'";
 		Query query = sessionFactory.getCurrentSession().createQuery(hql);
 		
 		@SuppressWarnings("unchecked")

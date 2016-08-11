@@ -20,6 +20,7 @@ import com.niit.shoppingkart.model.Supplier;
 public class SupplierController {
 	@Autowired
 	private SupplierDAO supplierDAO;
+	private Supplier supplier;
 	
 
 	@RequestMapping("/supplier/add")
@@ -41,6 +42,18 @@ public class SupplierController {
 		ModelAndView mv = new ModelAndView("/supplierList");
 		mv.addObject("supplierList", supplierList);
 
+		return mv;
+	}
+	@RequestMapping("supplier/edit/{id}")
+	public ModelAndView updateSupplier(@PathVariable ("id") String id)
+	{
+		ModelAndView mv = new ModelAndView("supplieredit");
+		supplier = supplierDAO.get(id);
+		mv.addObject("sid", supplier.getId());
+		mv.addObject("sname", supplier.getName());
+		mv.addObject("paddress", supplier.getAddress());
+		supplierDAO.delete(id);
+		mv.addObject("supplierList", supplierDAO.list());
 		return mv;
 	}
 	@RequestMapping("supplier/remove/{id}")

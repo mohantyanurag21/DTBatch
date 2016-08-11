@@ -4,9 +4,10 @@ package com.niit.shoppingkart.model;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
-
+import javax.persistence.Transient;
 
 import org.springframework.stereotype.Component;
+import org.springframework.web.multipart.MultipartFile;
 
 @Entity
 @Table(name = "product")
@@ -18,6 +19,14 @@ public class Product {
 	private String description;
 	private String company;
 	private int quantity;
+	@Transient
+	private MultipartFile image;
+	public MultipartFile getImage() {
+		return image;
+	}
+	public void setImage(MultipartFile image) {
+		this.image = image;
+	}
 	public String getCompany() {
 		return company;
 	}

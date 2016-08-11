@@ -103,8 +103,8 @@ body {
 						</ul></li>
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
-					<li><a href="#"><span class="glyphicon glyphicon-cart"></span>
-							Cart</a></li>
+					<li><a href="myCart"><span class="glyphicon glyphicon-cart"></span>
+							Cart(${value})</a></li>
 					<li><a href="#"><span class="glyphicon glyphicon-cart"></span>${message}</a></li>		
 					<li><a href="login1"><span
 							class="glyphicon glyphicon-log-in"></span> Login</a></li>
@@ -129,7 +129,7 @@ body {
 			document.getElementById("mySidenav").style.width = "0";
 		}
 	</script>
-
+	<h3>${msg}</h3>
 	<div class="container">
 		<br>
 		<div id="myCarousel" class="carousel slide" data-ride="carousel">
