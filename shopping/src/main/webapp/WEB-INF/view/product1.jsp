@@ -52,10 +52,13 @@
 					
 					<td><a href="<c:url value='product/edit/${product.id}' />">Edit</a></td>
 					<td><a href="<c:url value='product/remove/${product.id}' />">Delete</a></td>
+					
+					
 				</tr>
 			</c:forEach>
 		</table>
 	</c:if>
+	
 	</body>
 	</html>
 	

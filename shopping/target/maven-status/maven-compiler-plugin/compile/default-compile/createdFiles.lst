@@ -3,6 +3,7 @@ com\niit\shoppingkart\dao\CategoryDAO.class
 com\niit\shoppingkart\dao\ProductDAO.class
 com\niit\shoppingkart\model\Product.class
 com\niit\shoppingkart\controller\HomeController.class
+com\niit\shoppingkart\controller\RegistrationHandler.class
 com\niit\shoppingkart\model\Supplier.class
 com\niit\shoppingkart\config\ApplicationContextConfig.class
 com\niit\shoppingkart\dao\CategoryDAOImpl.class

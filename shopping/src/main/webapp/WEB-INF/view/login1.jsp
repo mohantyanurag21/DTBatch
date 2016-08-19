@@ -4,6 +4,7 @@
 
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 <html>
 <head>
 
@@ -170,13 +171,13 @@ body, html {
 			<img id="profile-img" class="profile-img-card"
 				src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" />
 			<p id="profile-name" class="profile-name-card"></p>
-	<c:url var="action" value="/isValidUser"></c:url>
+	<c:url var="action" value="j_spring_security_check"></c:url>
 
 	<form:form action="${action}" method="post">
 				<span id="reauth-email" class="reauth-email"></span>
 				<input
 					type="text" id="inputEmail" class="form-control"
-					placeholder="Email address" name = "name" required autofocus>
+					placeholder="Email address" name = "username" required autofocus>
 					<br>
 					 <input
 					type="password" id="inputPassword" class="form-control"
@@ -185,7 +186,7 @@ body, html {
 
 				<input type="submit" value="Login">
 				<a href="#" class="forgot-password"> Forgot the password? </a> <br>
-			<a href="register" class="forgot-password"> New User? Sign Up Here </a>
+			<a href="memberShip" class="forgot-password"> New User? Sign Up Here </a>
 	</form:form>
 	</div>
 		<!-- /card-container -->

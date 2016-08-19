@@ -1,3 +1,4 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <html>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -12,6 +13,8 @@
 .carousel-inner>.item>img, .carousel-inner>.item>a>img {
 	width: 70%;
 	margin: auto;
+	height: 500px;
+	max-height: 500px;
 }
 </style>
 <style>
@@ -73,7 +76,7 @@ body {
 					<span class="icon-bar"></span> <span class="icon-bar"></span> <span
 						class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="index">ShoppingKart</a>
+				<a class="navbar-brand" href="temp">ShoppingKart</a>
 			</div>
 			<div class="collapse navbar-collapse" id="myNavbar">
 				<ul class="nav navbar-nav">
@@ -108,6 +111,8 @@ body {
 					<li><a href="#"><span class="glyphicon glyphicon-cart"></span>${message}</a></li>		
 					<li><a href="login1"><span
 							class="glyphicon glyphicon-log-in"></span> Login</a></li>
+					
+					
 				</ul>
 			</div>
 		</div>

@@ -16,7 +16,7 @@ public interface CartDAO
 
 	public void delete(String id);
 	
-	public long getTotalAmount(String userId);
+	public double getTotalAmount(String userId);
 
 
 

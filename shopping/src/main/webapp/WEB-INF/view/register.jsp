@@ -13,7 +13,7 @@
 	<h1>${msg}</h1>
 	<h1>Please fill the details</h1>
 
-	<form:form action="registered" method="post" commandName ="userDetails">
+	<form:form action="${flowExecutionUrl}" method ="post" commandName ="userDetails">
 		<table>
 			<tr>
 				<td>User ID:</td>

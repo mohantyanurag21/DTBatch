@@ -24,16 +24,18 @@ public static void main(String[] args) {
 		CartDAO cartDAO = (CartDAO)  context.getBean("cartDAO");
 		
 		
-		c.setUserId("monty");
+		/*c.setUserId("monty");
 		c.setPrice(15000);
 		c.setQuantity(1);
 		c.setStatus("N");
 		c.setProductname("HA");
 		
-		cartDAO.saveOrUpdate(c);
+		cartDAO.saveOrUpdate(c);*/
 		//categoryDAO.delete("");
-		/*List<Cart> cartList = cartDAO.get("mohan");
-		for(Cart cart : cartList)
+		List<Cart> cartList = cartDAO.get("mohan");
+		double total = cartDAO.getTotalAmount("mohan");
+		System.out.println(total);
+		/*for(Cart cart : cartList)
 		{
 			System.out.println(cart.getCart_id());
 			System.out.println(cart.getUserId());
@@ -43,6 +45,7 @@ public static void main(String[] args) {
 			System.out.println(cart.getPrice());
 			
 		}*/
+		 
 		System.out.println("Table Created");
 	}
 

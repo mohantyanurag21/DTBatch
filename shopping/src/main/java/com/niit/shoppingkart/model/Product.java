@@ -3,6 +3,8 @@ package com.niit.shoppingkart.model;
 //import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
@@ -19,6 +21,9 @@ public class Product {
 	private String description;
 	private String company;
 	private int quantity;
+	@ManyToOne
+	@JoinColumn(name="category_id")
+	private Category category;
 	@Transient
 	private MultipartFile image;
 	public MultipartFile getImage() {

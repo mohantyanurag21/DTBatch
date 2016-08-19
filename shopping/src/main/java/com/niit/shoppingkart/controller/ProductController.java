@@ -114,6 +114,7 @@ public class ProductController
 		System.out.println(id);
 		ModelAndView mv = new ModelAndView("product1");
 		productDAO.delete(id);
+		mv.addObject("product", product);
 		mv.addObject("productList", productDAO.list());
 		return mv;	
 	}

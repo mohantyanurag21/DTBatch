@@ -38,5 +38,6 @@
 			</c:forEach>
 		</table>
 	</c:if>
+	<h3>Total Amount = ${Amount}</h3>
 </body>
 </html>

@@ -1,3 +1,4 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <html>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -12,6 +13,8 @@
 .carousel-inner>.item>img, .carousel-inner>.item>a>img {
 	width: 70%;
 	margin: auto;
+	height: 500px;
+	max-height: 500px;
 }
 </style>
 <style>
@@ -73,34 +76,24 @@ body {
 					<span class="icon-bar"></span> <span class="icon-bar"></span> <span
 						class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="index">ShoppingKart</a>
+				<a class="navbar-brand" href="temp">ShoppingKart</a>
 			</div>
 			<div class="collapse navbar-collapse" id="myNavbar">
 				<ul class="nav navbar-nav">
 					<li class="active"><a href="index">Home</a></li>
-					<li class="dropdown"><a class="dropdown-toggle"
-						data-toggle="dropdown" href="electronics">Electronics <span
-							class="caret"></span></a>
-						<ul class="dropdown-menu">
-							<li><a href="#">Mobiles</a></li>
-							<li><a href="#">Laptops</a></li>
-							<li><a href="#">Home Appliances</a></li>
-						</ul></li>
-					<li class="dropdown"><a class="dropdown-toggle"
-						data-toggle="dropdown" href="clothing">Clothing Footwear<span
-							class="caret"></span></a>
-						<ul class="dropdown-menu">
-							<li><a href="#">Men </a></li>
-							<li><a href="#">Women</a></li>
-							<li><a href="#">Children</a></li>
-						</ul></li>
-					<li class="dropdown"><a class="dropdown-toggle"
-						data-toggle="dropdown" href="#">Cosmetics<span class="caret"></span></a>
-						<ul class="dropdown-menu">
-							<li><a href="#">Shampoo</a></li>
-							<li><a href="#">Deodrants</a></li>
-							<li><a href="#">Creams</a></li>
-						</ul></li>
+						<c:if test="${not empty categoryList}">
+					<c:forEach items="${categoryList}" var="category">
+						<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href=${category.name}>${category.name}<span class="caret"></span></a>
+							<ul class="dropdown-menu">
+								<c:forEach items="${category.products}" var="product">
+
+									<li><a href="<c:url value='product/get/${product.id}' />">${product.name}</a></li>
+
+								</c:forEach>
+
+							</ul></li>
+					</c:forEach>
+				</c:if>
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
 					<li><a href="myCart"><span class="glyphicon glyphicon-cart"></span>
@@ -108,6 +101,8 @@ body {
 					<li><a href="#"><span class="glyphicon glyphicon-cart"></span>${message}</a></li>		
 					<li><a href="login1"><span
 							class="glyphicon glyphicon-log-in"></span> Login</a></li>
+					
+					
 				</ul>
 			</div>
 		</div>

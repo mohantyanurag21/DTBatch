@@ -1,6 +1,8 @@
 package com.niit.shoppingkart.model;
 
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,10 +11,11 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 import org.springframework.stereotype.Component;
+@SuppressWarnings("serial")
 @Entity
 @Table(name = "USER_DETAILS")
 @Component
-public class UserDetails {
+public class UserDetails implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int num;
