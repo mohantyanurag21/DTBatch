@@ -23,12 +23,12 @@
 		<transition on="failure" to="start" />
 	</action-state>
  
-	<view-state id="confirmDetails" view="/confirmDetails" model="flowScope.userDetails">
+	<view-state id="confirmDetails" view="confirmDetails" model="flowScope.userDetails">
 		<transition on="edit" to="start" />
 		<transition on="submit" to="welcome" />
 	</view-state>
  
-	<end-state id="welcome" view="index" />
+	<end-state id="welcome" view="about" />
 	<end-state id="toHome" view="externalRedirect:contextRelative:index.jsp" />
 	<end-state id="toException" view="externalRedirect:contextRelative:exception.jsp" />
  

@@ -43,7 +43,7 @@
 			
 
 			<tr>
-				<td><input type="submit" value="Register">
+				<td><input type="submit" name="_eventId_submit" value="Register">
 				<td><input type="reset" value="Reset">
 			</tr>
 			

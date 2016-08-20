@@ -111,6 +111,8 @@ public class UserController {
 		@RequestMapping("/registered")
 		public ModelAndView registered(@ModelAttribute UserDetails userDetails)
 		{
+			System.out.println("Hello");
+			System.out.println(userDetails.getName());
 			ModelAndView mv = new ModelAndView("index");
 			userDAO.saveOrUpdate(userDetails);
 			//user = (User) userDAO.get(userDetails.getId());

@@ -17,12 +17,16 @@
 					 the eventId to be triggered is given in "href" attribute as:
 				 -->
 				<a href="${flowExecutionUrl}&_eventId_home">Home</a><br /><br />
-				<sf:form modelAttribute="userDetails">
-					<sf:label path="id">UserName:</sf:label>${userDetails.Id}
+				<sf:form modelAttribute="userDetails" >
+					<sf:label path="id">UserName:</sf:label>${userDetails.id}
 					<br /><br />
-					<sf:label path="mailID">Email Id:</sf:label>${userDetails.mailID}
+					<sf:label path="password">Password:</sf:label>${userDetails.password}
 					<br /><br />
-					<sf:label path="address">Age :</sf:label>${userDetails.address}
+					<sf:label path="address">Address :</sf:label>${userDetails.address}
+					<br /><br />
+					<sf:label path="name">Username:</sf:label>${userDetails.name}
+					<br /><br />
+					<sf:label path="mailID">Mobile No:</sf:label>${userDetails.contactNumber}
 					<br /><br />
 					<!-- for triggering webflow events using form submission,
 					 the eventId to be triggered is given in "name" attribute as:
