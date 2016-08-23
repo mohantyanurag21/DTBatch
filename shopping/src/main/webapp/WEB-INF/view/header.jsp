@@ -113,12 +113,12 @@ body {
                             <li><a href="<c:url value="/register" />">Register</a></li>
                         </c:if>
 					
-					<!-- <li><a href="myCart"><span class="glyphicon glyphicon-cart"></span>
+					 <li><a href="myCart"><span class="glyphicon glyphicon-cart"></span>
 							Cart(${value})</a></li>
 					<li><a href="#"><span class="glyphicon glyphicon-cart"></span>${message}</a></li>		
 					<li><a href="login1"><span
 							class="glyphicon glyphicon-log-in"></span> Login</a></li>
-					-->
+					
 					
 				</ul>
 			</div>

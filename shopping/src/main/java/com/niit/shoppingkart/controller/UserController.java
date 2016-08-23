@@ -111,22 +111,23 @@ public class UserController {
 		  return mod; 
 		 }
 		@RequestMapping("/registered")
-		public ModelAndView registered(@ModelAttribute UserDetails userDetails)
+		public ModelAndView registered()
 		{
-			System.out.println("Hello");
-			System.out.println(userDetails.getName());
+			//System.out.println("Hello");
+			//System.out.println(userDetails.getName());
 			ModelAndView mv = new ModelAndView("index");
-			userDAO.saveOrUpdate(userDetails);
+			//userDAO.saveOrUpdate(userDetails);
 			//user = (User) userDAO.get(userDetails.getId());
-			user.setId(userDetails.getId());
-			user.setPassword(userDetails.getPassword());
-			user.setAdmin(false);
-			userDAO.saveOrUpdate(user);
+			//user.setId(userDetails.getId());
+			//user.setPassword(userDetails.getPassword());
+			//user.setAdmin(false);
+			//userDAO.saveOrUpdate(user);
 			
 			//userDAO.saveOrUpdate(user);
 			//user = (User) userDAO.get(userDetails.getId());
 			//user.setAdmin(false);
 			//userDAO.saveOrUpdate(user);
+			mv.addObject("categoryList",categoryDAO.list());
 			mv.addObject("msg", "successfully registered");
 			return mv;
 		}

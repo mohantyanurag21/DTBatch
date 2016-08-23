@@ -1,16 +1,19 @@
 package com.niit.shoppingkart.controller;
 
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.binding.message.MessageBuilder;
 import org.springframework.binding.message.MessageContext;
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Controller;
 
+import com.niit.shoppingkart.dao.UserDAO;
 import com.niit.shoppingkart.model.UserDetails;
 
 
 @Component
 public class RegistrationHandler {
+		@Autowired
+		private UserDAO userDAO;
 	
 		public UserDetails initFlow(){
 			return new UserDetails();
@@ -33,8 +36,13 @@ public class RegistrationHandler {
 						"age").defaultText("Age cannot be Empty").build());
 				status = "failure";
 			}
+			if(status =="success")
+			{
+				userDAO.saveOrUpdate(userDetails);
+			}
 			return status;
 		}
+		
 	
 
 }
