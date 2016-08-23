@@ -12,8 +12,9 @@ http://www.springframework.org/schema/util
 http://www.springframework.org/schema/util/spring-util-4.0.xsd 
 http://www.springframework.org/schema/context 
 http://www.springframework.org/schema/context/spring-context-4.0.xsd">
-    <http auto-config="true"  use-expressions="true">
-    <intercept-url pattern="/admin/**" access="ROLE_ADMIN" />
+    <http auto-config="true" >
+    	<intercept-url pattern="/admin/**" access="ROLE_ADMIN" />
+    	<intercept-url pattern="/admin/**" access="hasRole('ROLE_ADMIN')" />
         <intercept-url pattern="/user/**" access="ROLE_USER" />
         <form-login
             login-processing-url="/j_spring_security_check"
@@ -23,7 +24,10 @@ http://www.springframework.org/schema/context/spring-context-4.0.xsd">
 			username-parameter="username"
             password-parameter="password" />
         <logout
-            logout-success-url="/login1?logout" />
+        	invalidate-session="true"
+        	logout-url ="/j_spring_security_logout"
+            logout-success-url="/" />
+         <csrf disabled = "true"></csrf>
     </http>
 
     <authentication-manager>

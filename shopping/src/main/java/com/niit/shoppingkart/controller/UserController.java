@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.niit.shoppingkart.dao.CartDAO;
+import com.niit.shoppingkart.dao.CategoryDAO;
 import com.niit.shoppingkart.dao.UserDAO;
 import com.niit.shoppingkart.model.Cart;
 import com.niit.shoppingkart.model.User;
@@ -35,8 +36,8 @@ public class UserController {
 	//@Autowired
 	//private Cart cart;
 	
-	//@Autowired
-	//private CategoryDAO categoryDAO;
+	@Autowired
+	private CategoryDAO categoryDAO;
 	
 	//@Autowired
 	//private Category category;
@@ -86,6 +87,7 @@ public class UserController {
 					session.setAttribute("isLoggedInUser", name);
 					List<Cart> cartList = cartDAO.get(name);
 					mv.addObject("value", cartList.size());
+					mv.addObject("categoryList", categoryDAO.list());
 					return mv;
 				}
 			}
@@ -128,20 +130,14 @@ public class UserController {
 			mv.addObject("msg", "successfully registered");
 			return mv;
 		}
-		
-		@RequestMapping("/logout")
-		public ModelAndView logout(HttpServletRequest request, HttpSession session) {
-			ModelAndView mv = new ModelAndView("/home");
-			session.invalidate();
-			session = request.getSession(true);
-			//session.setAttribute("category", category);
-			//session.setAttribute("categoryList", categoryDAO.list());
-			mv.addObject("logoutMessage", "You successfully logged out");
-			mv.addObject("loggedOut", "true");
-		
-			return mv;
+		@RequestMapping("/admin")
+		public ModelAndView admin() 
+		{
+			
+		  ModelAndView mod = new ModelAndView("adminHome");
+		  mod.addObject("msg", "Welcome to Registration Page");
+		  return mod; 
 		 }
-
 
 	}
 

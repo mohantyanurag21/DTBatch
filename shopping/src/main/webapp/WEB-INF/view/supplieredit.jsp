@@ -35,8 +35,8 @@
 					<td>${supplier.id}</td>
 					<td>${supplier.name}</td>
 					<td>${supplier.address}</td>
-					<td><a href="<c:url value='supplier/edit/${supplier.id}' />">Edit</a></td>
-					<td><a href="<c:url value='supplier/remove/${supplier.id}' />">Delete</a></td>
+					<td><a href="<c:url value='/supplier/edit/${supplier.id}' />">Edit</a></td>
+					<td><a href="<c:url value='/supplier/remove/${supplier.id}' />">Delete</a></td>
 				</tr>
 			</c:forEach>
 		</table>

@@ -1,7 +1,8 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
-
+<%@ include file="/WEB-INF/view/header.jsp" %>
+<%@ page isELIgnored ="false" %>
 <link rel="stylesheet" href="<c:url value="/resources/admin.css" />">
 <html>
 <head>
@@ -20,6 +21,7 @@
 	<input type="number" name = "quantity"> Quantity
 	<input type="text" name = "company"> CompanyName
 	<input type="number" name = "price"> Price
+	<input type ="text" name = category_id> Category ID
 	<form:label path="image">Upload Picture</form:label>
                 <form:input  type = "file" path = "image" />
 	
@@ -36,6 +38,7 @@
 				<th width="120">product Price</th>
 				<th width="120">product Company</th>
 				<th width="120">product Quantity</th>
+				<th width="120">product Category</th>
 				<th width = "120"> Product Picture</th>
 				<th width="60">Edit</th>
 				<th width="60">Delete</th>
@@ -48,10 +51,11 @@
 					<td>${product.price}</td>
 					<td>${product.company}</td>
 					<td>${product.quantity}</td>
+					<td>${product.category_id}</td>
 					<td><img src="<c:url value="/resources/photos/${product.id}.jpg" />" alt="image" style="width:30%" /></td>
 					
-					<td><a href="<c:url value='product/edit/${product.id}' />">Edit</a></td>
-					<td><a href="<c:url value='product/remove/${product.id}' />">Delete</a></td>
+					<td><a href="<c:url value='/product/edit/${product.id}' />">Edit</a></td>
+					<td><a href="<c:url value='/product/remove/${product.id}' />">Delete</a></td>
 					
 					
 				</tr>

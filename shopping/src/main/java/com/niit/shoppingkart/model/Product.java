@@ -1,5 +1,6 @@
 package com.niit.shoppingkart.model;
 
+import javax.persistence.Column;
 //import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -22,7 +23,7 @@ public class Product {
 	private String company;
 	private int quantity;
 	@ManyToOne
-	@JoinColumn(name="category_id")
+	@JoinColumn(name="category_id",insertable=false, updatable=false)
 	private Category category;
 	@Transient
 	private MultipartFile image;
@@ -46,10 +47,9 @@ public class Product {
 	}
 	private double price;
 	
-	/*@Column(name = "category_id")
-	private String categoryID;
+	private String category_id;
 	
-	@Column(name = "supplier_id")
+	/*@Column(name = "supplier_id")
 	private String supplierID;*/
 	public String getId() {
 		return id;
@@ -69,6 +69,12 @@ public class Product {
 	public void setDescription(String description) {
 		this.description = description;
 	}
+	public String getCategory_id() {
+		return category_id;
+	}
+	public void setCategory_id(String category_id) {
+		this.category_id = category_id;
+	}
 	public double getPrice() {
 		return price;
 	}
@@ -80,8 +86,8 @@ public class Product {
 	}
 	public void setCategoryID(String categoryID) {
 		this.categoryID = categoryID;
-	}
-	public String getSupplierID() {
+	}*/
+	/*public String getSupplierID() {
 		return supplierID;
 	}
 	public void setSupplierID(String supplierID) {

@@ -25,7 +25,7 @@
   <context:annotation-config />
   <context:component-scan base-package="com.niit.shoppingkart" /> 
   <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
-        <property name="maxUploadSize" value="10240000" />
+        <property name="maxUploadSize" value="-1" />
     </bean>
    <webflow:flow-executor id="flowExecutor" flow-registry="flowRegistry" />
     
