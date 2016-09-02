@@ -38,7 +38,10 @@ public class RegistrationHandler {
 			}
 			if(status =="success")
 			{
+				System.out.println(userDetails.getId());
+				
 				userDAO.saveOrUpdate(userDetails);
+				
 			}
 			return status;
 		}

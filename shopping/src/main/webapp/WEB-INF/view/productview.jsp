@@ -1,3 +1,4 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <html>
 	
 	<head>
@@ -65,7 +66,6 @@
 			
 			.productImg{
 				
-				background-color: #000000;
 				width: 80%;
 				height: 80%;
 				margin-left: 10%;
@@ -105,7 +105,7 @@
 						<div class="thumbnail card-container"><!--place for Thumbnails--->
 							<table width="100%" height="100%" cellspacing="5px" cellspacing="0px" style="background-color:#ffffff;" border="1px solid black">
 								<tr>
-									<td></td>
+									<td><img src="<c:url value="/resources/photos/${product.id}.jpg" />" alt="image" style="width:100%" /></td>
 									<td></td>
 									<td></td>
 								</tr>

@@ -2,10 +2,13 @@ package com.niit.shoppingkart.controller;
 
 import java.util.List;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.config.annotation.web.servlet.configuration.EnableWebMvcSecurity;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.web.bind.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,11 +17,17 @@ import org.springframework.web.servlet.ModelAndView;
 import com.niit.shoppingkart.dao.CartDAO;
 import com.niit.shoppingkart.dao.CategoryDAO;
 import com.niit.shoppingkart.dao.ProductDAO;
+import com.niit.shoppingkart.dao.UserDAO;
 import com.niit.shoppingkart.model.Cart;
 import com.niit.shoppingkart.model.Product;
+import com.niit.shoppingkart.model.User;
+import com.niit.shoppingkart.model.UserDetails;
 
 @Controller
 public class HomeController {
+	
+	@Autowired
+	private User user;
 	
 	@Autowired
 	private Cart cart;
@@ -34,10 +43,31 @@ public class HomeController {
 	
 	@Autowired
 	private CategoryDAO categoryDAO;
+	
+	@Autowired
+	private UserDAO userDAO;
 
 	@RequestMapping("/")
-	public ModelAndView home() {
+	public ModelAndView home(HttpSession session ) {
 		ModelAndView mv = new ModelAndView("index");
+		/*System.out.println(session.getAttribute("SPRING_SECURITY_CONTEXT"));
+		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+
+		if (principal instanceof UserDetails) {
+		  String username = ((UserDetails)principal).getId();
+		  System.out.println("instance1" + username);
+		  System.out.println("Hello1");
+		} else {
+		  String username = principal.toString();
+		  System.out.println("instance2" + username);
+		  System.out.println("Hello2");
+		}*/
+		
+		//System.out.println(activeUser.getId());
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+	     String name = auth.getName();
+	     System.out.println(name);
+	     //System.out.println("hello3");
 		mv.addObject("categoryList", categoryDAO.list());
 		return mv;
 	}
@@ -70,16 +100,23 @@ public class HomeController {
 		return mv;
 	}
 	
+	
 	@RequestMapping("/myCart")
-	public ModelAndView myCart(HttpSession session)
+	public ModelAndView myCart()
 	{
-		String user = (String) session.getAttribute("isLoggedInUser");
+		//User user = userDAO.get(activeUser.getId());
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+	    String name = auth.getName();
+	    //user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		//System.out.println(user.getId());
+		//String user = (String) session.getAttribute("isLoggedInUser");
 		ModelAndView mv = new ModelAndView("mycart");
-		List<Cart> cartList = cartDAO.get(user);
+		//System.out.println(activeUser.getId());
+		List<Cart> cartList = cartDAO.get(name);
 		mv.addObject("cart", cart);
 		mv.addObject("cartList", cartList);
-		//double total = cartDAO.getTotalAmount("mohan");
-		//mv.addObject("Amount", total);
+		double total = cartDAO.getTotalAmount(name);
+		mv.addObject("Amount", total);
 		return mv;
 	}
 	@RequestMapping("/get/{id}")
